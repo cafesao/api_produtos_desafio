@@ -103,14 +103,14 @@ Agora vamos iniciar o docker-compose.
 ## Pronto
 
 Agora você esta com o servidor rodando na sua maquiná local.
-Para fazer as requisições utilize o tutorial acima **Como testar - Modo rápido** e apenas substitua a URL para _localhost:3000_
+Para fazer as requisições utilize o tutorial acima [Como testar - Modo rápido](#testar_rapido) e apenas substitua a URL para _localhost:3000_
 
 ## Detalhes Técnicos
 
 <a name="detalhes"/>
 
 A API quando recebe uma requisição ela verifica junto ao um banco de dados **Redis** se esta requisição foi feita a 10 minutos atrás.
-Caso ela ja tenha sido feita, a API nega o pedido
+Caso ela ja tenha sido feita, a API nega o pedido.
 Se não, a API salva o _hash_ desta requisição no **Redis** e retorna um código 200
 
 Sendo assim, o funcionamento da API consiste em nada mais do que, quando receber o corpo da requisição, criar um _hash md5_ e verificar se existe ou não no **Redis**.

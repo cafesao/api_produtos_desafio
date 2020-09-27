@@ -1,38 +1,44 @@
+const cluster = require('cluster')
 const redisController = require('../database/redisController')
-const { hashObject } = require('../function/functions')
+const hashObject = require('../function/hashObject')
+const checkObject = require('../function/checkObject')
+const message = require('../error/error')
 
 module.exports = {
   add: async (req, res) => {
     const body = req.body
-    const objectDisabled = []
+    const objectExpireAt = []
     let count = 0
 
-    body.map(async (object_current, index) => {
-      let hash = hashObject(object_current)
-      let test = await redisController.hasObject(hash)
+    if (checkObject.objectIsArray(body)) {
+      return res.status(400).send({ info: message.objectInvalidSyntax() })
+    }
 
-      if (test === false) {
+    body.map(async (object_current, index) => {
+      if (checkObject.objectIsEmpty(object_current)) {
+        return res.status(400).send({ info: message.objectInvalidSyntax() })
+      }
+
+      const hash = hashObject(object_current)
+      const checkHash = await redisController.hasObject(hash)
+
+      if (!checkHash) {
         await redisController.add(hash)
         count += 1
       } else {
         const expire = await redisController.time_left(hash)
-        const object_current_copy = Object.assign(object_current, { expire })
 
-        objectDisabled.push(object_current_copy)
+        objectExpireAt.push(Object.assign(object_current, { expire }))
       }
 
-      if (index + 1 === body.length) {
+      if (checkObject.endArrayObject(index, body.length)) {
         if (count === body.length) {
-          return res
-            .status(200)
-            .send({ info: 'Objects were added successfully' })
-        } else {
-          return res.status(403).send({
-            error:
-              'Some of the objects in the request body have already been sent recently, wait about 10 minutes.',
-            info: objectDisabled,
-          })
+          return res.status(200).send({ info: message.objectSucess() })
         }
+        return res.status(403).send({
+          info: message.objectFailed(),
+          data: objectExpireAt,
+        })
       }
     })
   },

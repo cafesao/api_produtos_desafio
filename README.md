@@ -26,7 +26,7 @@ curl -XPOST http://54.232.45.139:3000/v1/products -d '[{"id": "123", "name": "me
 - [Como testar - Modo rápido](#testar_rapido)
 - [Como testar - Localmente](#testar_localmente)
 - [Detalhes técnicos](#detalhes)
-- [Módulos usados](#modulos)
+- [Módulos utilizados](#modulos)
 
 # Como testar - Modo rápido
 

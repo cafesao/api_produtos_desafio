@@ -1,7 +1,7 @@
 {
   "name": "api_produtos_desafio",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "git@github.com:cafesao/api_produtos_desafio.git",
   "author": "Gabriel <gabriel.diasdutra2@gmail.com>",
   "license": "MIT",
@@ -9,7 +9,6 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "object-hash": "^2.0.3",
     "redis": "^3.0.2"
   },
   "scripts": {

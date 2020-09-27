@@ -1,8 +1,9 @@
 const express = require('express')
 
-const serverController = require('../controllers/serverControllers')
+const serverControllers = require('../controllers/serverControllers')
+
 const Router = express.Router()
 
-Router.post('/products', serverController.add)
+Router.post('/products', serverControllers.add)
 
 module.exports = Router

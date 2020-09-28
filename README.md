@@ -25,6 +25,7 @@ curl -XPOST http://54.232.45.139:3000/v1/products -d '[{"id": "123", "name": "me
 
 - [Como testar - Modo rápido](#testar_rapido)
 - [Como testar - Localmente](#testar_localmente)
+- [Testes com Jest](#teste_jest)
 - [Detalhes técnicos](#detalhes)
 - [Módulos utilizados](#modulos)
 
@@ -104,6 +105,20 @@ Agora vamos iniciar o docker-compose.
 
 Agora você esta com o servidor rodando na sua maquiná local.
 Para fazer as requisições utilize o tutorial acima [Como testar - Modo rápido](#testar_rapido) e apenas substitua a URL para _localhost:3000_
+
+## Testes com Jest
+
+<a name="teste_jest"/>
+
+Você pode testar as funcionalidades da API com o Jest.
+
+Para isso, acesse a pasta do projeto e coloque o comando `yarn jest`
+
+Com isso, você terá algo parecido com isso:
+
+![Image](https://i.ibb.co/N3VqThF/testes.jpg)
+
+Apenas uma observação, caso o Jest esteja informando que o segundo teste esta com erro, e por que ele esta tentando fazer uma requisição que ja foi feita a 10 minutos atrás, sendo assim, apenas acesse o arquivo de teste e edite o body e rode os teste de novo.
 
 ## Detalhes Técnicos
 

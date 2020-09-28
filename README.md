@@ -118,7 +118,9 @@ Com isso, você terá algo parecido com isso:
 
 ![Image](https://i.ibb.co/N3VqThF/testes.jpg)
 
-Apenas uma observação, caso o Jest esteja informando que o segundo teste esta com erro, e por que ele esta tentando fazer uma requisição que ja foi feita a 10 minutos atrás, sendo assim, apenas acesse o arquivo de teste e edite o body e rode os teste de novo.
+**Lembre-se**, caso esteja testando na sua maquina local, mude a constante `URL` dentro do arquivo de teste para *localhost:3000/v1/products*.
+
+Apenas uma observação, caso o Jest esteja informando que o segundo teste não passou, é provavelmente por que o Jest esta tentando fazer uma requisição que ja foi feita a 10 minutos atrás, sendo assim, apenas acesse o arquivo de teste e edite a constante `body` e rode os teste de novo.
 
 ## Detalhes Técnicos
 

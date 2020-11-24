@@ -23,55 +23,10 @@ curl -XPOST http://54.232.45.139:3000/v1/products -d '[{"id": "123", "name": "me
 
 ## Conteúdo
 
-- [Como testar - Modo rápido](#testar_rapido)
 - [Como testar - Localmente](#testar_localmente)
 - [Testes com Jest](#teste_jest)
 - [Detalhes técnicos](#detalhes)
 - [Módulos utilizados](#modulos)
-
-# Como testar - Modo rápido
-
-<a name="testar_rapido"/>
-
-## Pre-instalação
-
-Verifique se você ja tem algum tipo de programa para fazer suas requisições.
-Caso não tenha, utilize o [Insomnia](https://insomnia.rest/download/core/)
-
-## Passo 1
-
-Abra seu Insomnia e crie uma nova request
-
-![Image](https://i.ibb.co/Gc5LGw4/Parte-1.jpg)
-
-## Passo 2
-
-Adicione um nome da sua preferência
-
-- Método: POST
-- Body: JSON
-
-![Image](https://i.ibb.co/RBH7fq0/Parte-2.jpg)
-
-## Passo 3
-
-Coloque o caminho da API, no caso: **54.232.45.139:3000/v1/products**
-
-![Image](https://i.ibb.co/yV8PwNL/Parte-3.jpg)
-
-## Passo 4
-
-Crie um corpo(Body) da sua requisição, seguindo algumas regras e depois clique em enviar (Send).
-
-- Tudo deve estar dentro de um Array []
-- Não pode haver nenhum objeto vazio
-
-![Image](https://i.ibb.co/xh3QCZy/Parte-4.jpg)
-
-## Pronto
-
-Sua requisição foi feita, caso você faça duas vezes a mesma requisição em um intervalo de **10 minutos**, a
-API negara seu pedido com um código 403.
 
 # Como testar - Localmente
 
